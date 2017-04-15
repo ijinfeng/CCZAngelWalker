@@ -27,6 +27,10 @@
     self.label.rate = RateNormal;
     [self.view addSubview:self.label];
     
+    UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"headr.jpg"]];
+    icon.frame = CGRectMake(0, 0, 40, 40);
+    self.label.rightView = icon;
+    
     
     [self.label trotingWithAttribute:^(CCZTrotingAttribute * _Nonnull attribute) {
         NSLog(@"%@",attribute);
@@ -34,23 +38,21 @@
     
     
     CCZTrotingAttribute *att = [CCZTrotingAttribute new];
-    NSMutableAttributedString *matt = [[NSMutableAttributedString alloc] initWithString:@"诶吴磊宝得，😄你个，今天天气真是好，你们说是不是"];
-    [matt addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(10, 5)];
+    NSMutableAttributedString *matt = [[NSMutableAttributedString alloc] initWithString:@"这是第一条数据，如果walker的类型是Descend，那么在数据较长时，能够自动左滚适应"];
+    [matt addAttribute:NSForegroundColorAttributeName value:[UIColor purpleColor] range:NSMakeRange(0, 10)];
     att.attribute = [matt copy];
     [self.label addTrotingAttributes:@[att]];
 }
 
 - (IBAction)clcikButton:(UIButton *)sender {
-    [self.label addText:@"******77&&&&"];
+    [self.label addText:@"添加一条普通的新数据"];
 }
 - (IBAction)addtexts:(id)sender {
-    [self.label addTexts:@[@"你们好",@"大家好！！！1"]];
+    [self.label addTexts:@[@"数组文本----1",@"数组文本----2"]];
 }
 - (IBAction)addTextat2:(id)sender {
     CCZTrotingAttribute *att = [[CCZTrotingAttribute alloc] init];
-    att.text = @"在第二位添加字符串";
-    NSMutableAttributedString *matt = [[NSMutableAttributedString alloc] initWithString:att.text];
-    [matt addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(1, 3)];
+    NSMutableAttributedString *matt = [[NSMutableAttributedString alloc] initWithString:@"在第二位添加一条新数据，显示红色" attributes:@{NSForegroundColorAttributeName: [UIColor redColor]}];
     att.attribute = [matt copy];
     [self.label addAttribute:att atIndex:2];
 }

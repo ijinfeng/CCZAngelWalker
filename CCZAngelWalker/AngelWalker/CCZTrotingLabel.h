@@ -11,14 +11,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^CCZTrotingBlock)(CCZTrotingAttribute *attribute);
+
 typedef NS_ENUM(NSUInteger, CCZTrotingRate) {
     /// default
     RateNormal,
     RateSlowly,
     RateFast,
 };
-
-typedef void(^CCZTrotingBlock)(CCZTrotingAttribute *attribute);
 
 @interface CCZTrotingLabel : CCZAngelWalker
 
@@ -34,11 +34,11 @@ typedef void(^CCZTrotingBlock)(CCZTrotingAttribute *attribute);
 /**
  * 默认14
  */
-@property (nonatomic, strong) UIFont *font;
+@property (nonatomic, strong, nullable) UIFont *font;
 /**
  * 默认blackColor
  */
-@property (nonatomic, strong) UIColor *textColor;
+@property (nonatomic, strong, nullable) UIColor *textColor;
 
 - (void)addText:(NSString *)text;
 - (void)addTexts:(NSArray <NSString *>*)texts;

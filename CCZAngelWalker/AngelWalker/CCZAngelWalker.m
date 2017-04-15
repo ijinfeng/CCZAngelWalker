@@ -43,7 +43,7 @@
         return nil;
     }
     
-    self.backgroundColor = [UIColor clearColor];
+    self.backgroundColor = [UIColor whiteColor];
     self.duration = 2;
     self.pause = 0;
     self.type = CCZWalkerTypeDefault;

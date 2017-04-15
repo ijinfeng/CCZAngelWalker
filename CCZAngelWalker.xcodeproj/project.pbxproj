@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		370326E11EA1B71F002B5D3B /* rem_effect.png in Resources */ = {isa = PBXBuildFile; fileRef = 370326E01EA1B71F002B5D3B /* rem_effect.png */; };
+		370327211EA255E5002B5D3B /* headr.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 370327201EA255E5002B5D3B /* headr.jpg */; };
 		37235D5D1E98D53E002E211E /* CCZTrotingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37235D5C1E98D53E002E211E /* CCZTrotingLabel.m */; };
 		37943ABA1E8802B4009261EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37943AB91E8802B4009261EB /* main.m */; };
 		37943ABD1E8802B4009261EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37943ABC1E8802B4009261EB /* AppDelegate.m */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		370326E01EA1B71F002B5D3B /* rem_effect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rem_effect.png; sourceTree = "<group>"; };
+		370327201EA255E5002B5D3B /* headr.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = headr.jpg; sourceTree = "<group>"; };
 		37235D5B1E98D53E002E211E /* CCZTrotingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCZTrotingLabel.h; sourceTree = "<group>"; };
 		37235D5C1E98D53E002E211E /* CCZTrotingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCZTrotingLabel.m; sourceTree = "<group>"; };
 		37943AB51E8802B4009261EB /* CCZAngelWalker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCZAngelWalker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +75,7 @@
 				37943ABC1E8802B4009261EB /* AppDelegate.m */,
 				37943ABE1E8802B4009261EB /* ViewController.h */,
 				37943ABF1E8802B4009261EB /* ViewController.m */,
+				370327201EA255E5002B5D3B /* headr.jpg */,
 				370326E01EA1B71F002B5D3B /* rem_effect.png */,
 				37943ACF1E8802C9009261EB /* AngelWalker */,
 				37943AC11E8802B4009261EB /* Main.storyboard */,
@@ -165,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37943AC81E8802B4009261EB /* LaunchScreen.storyboard in Resources */,
+				370327211EA255E5002B5D3B /* headr.jpg in Resources */,
 				370326E11EA1B71F002B5D3B /* rem_effect.png in Resources */,
 				37943AC51E8802B4009261EB /* Assets.xcassets in Resources */,
 				37943AC31E8802B4009261EB /* Main.storyboard in Resources */,
