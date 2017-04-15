@@ -61,13 +61,6 @@
                                     <action selector="addtexts:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NwP-rM-fmL"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HHp-ek-oJV">
-                                <rect key="frame" x="16" y="268" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="switchmm:" destination="BYZ-38-t0r" eventType="valueChanged" id="spy-zf-848"/>
-                                </connections>
-                            </switch>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>

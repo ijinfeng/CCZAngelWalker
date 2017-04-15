@@ -22,9 +22,9 @@
     self.label = [[CCZTrotingLabel alloc] initWithFrame:CGRectMake(20, 100, 300, 40)];
     self.label.backgroundImage = [UIImage imageNamed:@"rem_effect"];
     self.label.pause = 1;
-    self.label.repeatTextArr = YES;
+//    self.label.repeatTextArr = YES;
     self.label.type = CCZWalkerTypeDescend;
-    self.label.rate = RateSlowly;
+    self.label.rate = RateNormal;
     [self.view addSubview:self.label];
     
     
@@ -60,11 +60,6 @@
 }
 - (IBAction)removeAll:(id)sender {
     [self.label removeAllAttributes];
-}
-- (IBAction)switchmm:(UISwitch *)sender {
-    sender.on = !sender.on;
-    
-    self.label.hideWhenStoped = sender.on;
 }
 
 @end

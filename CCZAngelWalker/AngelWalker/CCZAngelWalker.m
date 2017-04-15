@@ -97,7 +97,7 @@
     
     CGSize leftSize = leftView.frame.size;
     _leftView.frame = CGRectMake(0, (self.aSize.height - leftSize.height) / 2, leftSize.width, leftSize.height);
-    [self.contentView addSubview:_leftView];
+    [self addSubview:_leftView];
     
     [self updateContentframe];
 }
@@ -116,7 +116,7 @@
     
     CGSize rightSize = rightView.frame.size;
     _rightView.frame = CGRectMake(self.aSize.width - rightSize.width, (self.aSize.height - rightSize.height) / 2, rightSize.width, rightSize.height);
-    [self.contentView addSubview:_rightView];
+    [self addSubview:_rightView];
     
     [self updateContentframe];
 }
