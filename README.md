@@ -6,7 +6,7 @@
 ![image](https://github.com/CranzCapatain/CCZAngelWalker/blob/master/CCZGuideView_gif.gif)
 
 *** 
-#### Demo中我只封装了一个trotingLabel，使用的时候可以自己照着进行封装
+#### Demo中我只封装了一个trotingLabel，如果想要自定义的时候可以自己照着进行封装
 
 欢迎大家加QQ群：**536251377**
 
