@@ -185,4 +185,10 @@
     self.label.font = font;
 }
 
+- (void)setHideWhenStoped:(BOOL)hideWhenStoped {
+    _hideWhenStoped = hideWhenStoped;
+    
+    self.hidden = hideWhenStoped;
+}
+
 @end
