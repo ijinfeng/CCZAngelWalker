@@ -41,11 +41,10 @@
 // 为label设置一个默认的值，一定要有值，否则会出现第一次frame动画错乱的问题
 // 问题重现可以把这个默认的frame去掉
         
-        self.label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 10)];
+        self.label = [[UILabel alloc] init];
         self.label.backgroundColor = [UIColor clearColor];
         self.label.textColor = [UIColor blackColor];
         self.label.font = [UIFont systemFontOfSize:14];
-        [self addWalkerView:self.label];
     }
     
     __weak typeof(self) weakSelf = self;
@@ -85,6 +84,12 @@
     return self;
 }
 
+- (void)walk {
+    if (self.attributeArrs.count) {
+        [super walk];
+    }
+}
+
 - (void)setNeedsTroting {
     if (!self.isWalking && self.attributeArrs.count) {
         [self addAttribute:[self.attributeArrs objectAtIndex:self.index]];
@@ -94,6 +99,10 @@
 - (void)addAttribute:(CCZTrotingAttribute *)attribute {
     if (!attribute) {
         return;
+    }
+    
+    if (self.walkerView == nil) {
+        [self addWalkerView:self.label];
     }
     
     self.currentAttribute = attribute;

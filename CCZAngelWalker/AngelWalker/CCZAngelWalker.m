@@ -132,6 +132,7 @@
     if (self.isWalking == YES) {
         return;
     }
+    
     [self calculate];
     [self addAnimations];
 }
@@ -182,7 +183,7 @@
     switch (self.type) {
             case CCZWalkerTypeDefault: {
                 velocity = (self.frameBegin.origin.x - self.frame1.origin.x) / self.duration;
-
+                
                 [UIView animateWithDuration:self.duration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
                     self.walkerView.frame = self.frame1;
                 } completion:^(BOOL finished) {
@@ -194,7 +195,11 @@
                         
 // ?????
 // 此处修复在self.superView 也就是父容器视图在销毁的时候，不停回调的问题
-                        if (!self.superview) {
+// 还有一个问题是，在控制器切换的时候，UIView的anim闭包会返回一个finished == NO，这个时候，如果不去判断，那么就相当于这个动画闭包直接返回
+// 注意到：上面两个应该是同一个问题
+// 但是，问题又来了，一旦加了finished == NO,那么将不再重复进行滚动，返回后会发现走马灯不动了
+                        
+                        if (!finished) {
                             return;
                         }
                         
@@ -227,7 +232,7 @@
                                 self.walkerView.frame = self.frameBegin;
                                 self.isWalking = NO;
                                 
-                                if (!self.superview) {
+                                if (!finished) {
                                     return;
                                 }
                                 
@@ -247,7 +252,7 @@
                             self.walkerView.frame = self.frameBegin;
                             self.isWalking = NO;
                             
-                            if (!self.superview) {
+                            if (!finished) {
                                 return;
                             }
                             
