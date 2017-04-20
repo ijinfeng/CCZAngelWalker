@@ -36,7 +36,13 @@
     self.repeatTextArr = YES;
     
     if (!self.label) {
-        self.label = [[UILabel alloc] init];
+        
+// ????
+// 为label设置一个默认的值，一定要有值，否则会出现第一次frame动画错乱的问题
+// 问题重现可以把这个默认的frame去掉
+        
+        self.label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 10)];
+        self.label.backgroundColor = [UIColor clearColor];
         self.label.textColor = [UIColor blackColor];
         self.label.font = [UIFont systemFontOfSize:14];
         [self addWalkerView:self.label];
@@ -162,13 +168,13 @@
 - (void)calcuteDuration {
     switch (self.rate) {
         case RateNormal:
-            self.duration = self.type == CCZWalkerTypeDefault? 2 : 0.8;
+            self.duration = self.type == CCZWalkerTypeDefault? 5 : 0.8;
             break;
         case RateSlowly:
-            self.duration = self.type == CCZWalkerTypeDefault? 5 : 2;
+            self.duration = self.type == CCZWalkerTypeDefault? 8 : 2;
             break;
         case RateFast:
-            self.duration = self.type == CCZWalkerTypeDefault? 1 : 0.2;
+            self.duration = self.type == CCZWalkerTypeDefault? 2 : 0.2;
             break;
     }
 }

@@ -10,11 +10,18 @@
 #import "CCZAngelWalker.h"
 #import "CCZTrotingLabel.h"
 @interface ViewController ()
-@property (nonatomic, strong ) CCZAngelWalker *walker;
+
 @property (nonatomic, strong) CCZTrotingLabel *label;
+
+@property (nonatomic, strong) CCZAngelWalker *walker;
+
 @end
 
 @implementation ViewController
+
+- (void)dealloc {
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,14 +29,19 @@
     self.label = [[CCZTrotingLabel alloc] initWithFrame:CGRectMake(20, 100, 300, 40)];
     self.label.backgroundImage = [UIImage imageNamed:@"rem_effect"];
     self.label.pause = 1;
-//    self.label.repeatTextArr = YES;
     self.label.type = CCZWalkerTypeDescend;
-    self.label.rate = RateNormal;
+    self.label.rate = RateFast;
     [self.view addSubview:self.label];
     
     UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"headr.jpg"]];
     icon.frame = CGRectMake(0, 0, 40, 40);
     self.label.rightView = icon;
+    
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backButton setBackgroundColor:[UIColor redColor]];
+    backButton.frame = CGRectMake(20, 20, 120, 40);
+    [self.view addSubview:backButton];
+    [backButton addTarget:self action:@selector(didClick) forControlEvents:UIControlEventTouchUpInside];
     
     
     [self.label trotingWithAttribute:^(CCZTrotingAttribute * _Nonnull attribute) {
@@ -37,11 +49,15 @@
     }];
     
     
-    CCZTrotingAttribute *att = [CCZTrotingAttribute new];
-    NSMutableAttributedString *matt = [[NSMutableAttributedString alloc] initWithString:@"这是第一条数据，如果walker的类型是Descend，那么在数据较长时，能够自动左滚适应"];
-    [matt addAttribute:NSForegroundColorAttributeName value:[UIColor purpleColor] range:NSMakeRange(0, 10)];
-    att.attribute = [matt copy];
-    [self.label addTrotingAttributes:@[att]];
+//    CCZTrotingAttribute *att = [CCZTrotingAttribute new];
+//    NSMutableAttributedString *matt = [[NSMutableAttributedString alloc] initWithString:@"这是第一条数据，如果walker的类型是Descend，那么在数据较长时，能够自动左滚适应"];
+//    [matt addAttribute:NSForegroundColorAttributeName value:[UIColor purpleColor] range:NSMakeRange(0, 10)];
+//    att.attribute = [matt copy];
+//    [self.label addTrotingAttributes:@[att]];
+}
+
+- (void)didClick {
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (IBAction)clcikButton:(UIButton *)sender {

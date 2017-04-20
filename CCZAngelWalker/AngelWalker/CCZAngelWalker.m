@@ -62,10 +62,9 @@
     [self addSubview:self.backgroundImageView];
 
     self.contentView = [[UIView alloc] initWithFrame:self.bounds];
-    self.clipsToBounds = YES;
+    self.contentView.clipsToBounds = YES;
     self.contentView.backgroundColor = [UIColor clearColor];
     [self addSubview:self.contentView];
-    
 }
 
 - (void)addWalkerView:(UIView *)walkerView {
@@ -147,7 +146,6 @@
             self.frameBegin = CGRectMake(CGRectGetWidth(self.contentView.frame), (self.aSize.height - self.wSize.height) / 2, self.wSize.width, self.wSize.height);
             // 设置中间段位置
             self.frame1 = CGRectMake(0, (self.aSize.height - self.wSize.height) / 2, self.wSize.width, self.wSize.height);
-            self.frame2 = self.frame1;
             // 设置结束时的位置
             self.frameEnd = CGRectMake(- self.wSize.width, (self.aSize.height - self.wSize.height) / 2, self.wSize.width, self.wSize.height);
         }
@@ -184,7 +182,7 @@
     switch (self.type) {
             case CCZWalkerTypeDefault: {
                 velocity = (self.frameBegin.origin.x - self.frame1.origin.x) / self.duration;
-                
+
                 [UIView animateWithDuration:self.duration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
                     self.walkerView.frame = self.frame1;
                 } completion:^(BOOL finished) {
@@ -193,6 +191,12 @@
                     } completion:^(BOOL finished) {
                         self.walkerView.frame = self.frameBegin;
                         self.isWalking = NO;
+                        
+// ?????
+// 此处修复在self.superView 也就是父容器视图在销毁的时候，不停回调的问题
+                        if (!self.superview) {
+                            return;
+                        }
                         
                         !self.finishedBlock ?: self.finishedBlock();
                         
@@ -223,6 +227,10 @@
                                 self.walkerView.frame = self.frameBegin;
                                 self.isWalking = NO;
                                 
+                                if (!self.superview) {
+                                    return;
+                                }
+                                
                                 !self.finishedBlock ?: self.finishedBlock();
                                 
                                 if (self.repeat == YES) {
@@ -238,6 +246,10 @@
                         } completion:^(BOOL finished) {
                             self.walkerView.frame = self.frameBegin;
                             self.isWalking = NO;
+                            
+                            if (!self.superview) {
+                                return;
+                            }
                             
                             !self.finishedBlock ?: self.finishedBlock();
                             
