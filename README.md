@@ -1,13 +1,9 @@
 # CCZAngelWalker
 
 ## 最新更新（重要）
-1. 修复在第一次点击添加文本的时候，如下：
-```Objective-C
-// label的初始位置不正确
-[self.label addTexts:@[@"数组文本----1",@"数组文本----2"]];
-```
-2. 修复在切换控制器时，[UIView animation:]闭包无限快速回调，消耗内存的bug
-3. 为了在控制器再次显示的时候，走马灯仍然能够正常运行，请做如下操作：
+1. **修复在第一次点击添加文本的时候，动画显示不正确问题**
+2. **修复在切换控制器时，[UIView animation:]闭包无限快速回调，消耗内存的bug**
+3. **为了在控制器再次显示的时候，走马灯仍然能够正常运行，请做如下操作：**
 ```Objective-C
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
